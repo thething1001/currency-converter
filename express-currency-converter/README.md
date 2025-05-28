@@ -23,4 +23,7 @@ Your task is to build a simple currency conversion service using Node.js.
          - Select the target currency (e.g., EUR).
          - Enter the amount to convert.
       - After clicking the “Convert” button, the UI should call your API and display the conversion result (e.g., “100 USD = 3675.25 UAH”).
-   - Add basic validation (e.g., invalid or empty amount should show an error).
+   - Add basic validation (e.g., invalid or empty amount should show an error). 
+   
+   Example UI:
+   ![Demo](client/demo.png)
