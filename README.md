@@ -23,7 +23,7 @@ Your task is to build a simple currency conversion service using Node.js.
    - Add basic validation (e.g., invalid or empty amount should show an error). 
 
    Example UI:
-   ![Demo](express-currency-converter/client/demo.png)
+   ![Demo](client/demo.png)
 
 3. **API Endpoint with Caching**
    - Create an API endpoint that returns the exchange rate for a given currency pair.
