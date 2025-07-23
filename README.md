@@ -26,10 +26,12 @@ cd currency-converter
 
 ### **2. Configure Environment Variables**
 
-The project requires environment variables to function properly. To assist you, `.env` files are provided in the following directories:
+The project requires environment variables to function properly. To assist you, `.env.example` files are provided in the following directories:
 
 - `server/`
 - `client/`
+
+These files serve as templates, listing all necessary variables. You need to copy them to their respective `.env` files and fill them with data specific to your setup.
 
 ---
 
@@ -69,7 +71,6 @@ Once the application is running, you can access it as follows, assuming you left
 - **Frontend**: [http://localhost:5000](http://localhost:5000)
 - **Backend**: [http://localhost:8000/api](http://localhost:8000)
 
-
 # Task: Currency Converter
 
 ## User Story
@@ -83,16 +84,18 @@ Your task is to build a simple currency conversion service using Node.js.
 ## Requirements
 
 1. **Currency Conversion Service**
+
    - Implement a backend service that retrieves current currency exchange rates from the [National Bank of Ukraine Open Data API](https://bank.gov.ua/ua/open-data/api-dev) and create an API endpoint that returns the exchange rate for a given currency pair, including a method to convert any amount from one currency to another (for example, USD to EUR).
 
 2. **Currency Converter UI (React)**
+
    - Implement a simple user interface using React for currency exchange.
-      - The page should include a form where a user can:
-         - Select the source currency (e.g., USD).
-         - Select the target currency (e.g., EUR).
-         - Enter the amount to convert.
-      - After clicking the “Convert” button, the UI should call your API and display the conversion result (e.g., “100 USD = 3675.25 UAH”).
-   - Add basic validation (e.g., invalid or empty amount should show an error). 
+     - The page should include a form where a user can:
+       - Select the source currency (e.g., USD).
+       - Select the target currency (e.g., EUR).
+       - Enter the amount to convert.
+     - After clicking the “Convert” button, the UI should call your API and display the conversion result (e.g., “100 USD = 3675.25 UAH”).
+   - Add basic validation (e.g., invalid or empty amount should show an error).
 
    Example UI:
    ![Demo](client/demo.png)
