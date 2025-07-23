@@ -1,24 +1,44 @@
-import React, { useState } from "react"
+import axios from "axios";
+import React, { useState } from "react";
 
-type CurrencyCode = "USD" | "EUR" | "UAH"
+type CurrencyCode = "USD" | "EUR" | "UAH";
 
 interface Currency {
-  code: CurrencyCode
-  name: string
+  code: CurrencyCode;
+  name: string;
 }
 
-export const API_BASE_URL = "http://localhost:8000"
+export const API_BASE_URL = "http://localhost:8000/api";
 
 const defaultCurrencies: Currency[] = [
   { code: "USD", name: "Долар США" },
   { code: "EUR", name: "Євро" },
   { code: "UAH", name: "Гривня" },
-]
+];
 
 const CurrencyConverter: React.FC = () => {
-  const [from, setFrom] = useState<CurrencyCode>("USD")
-  const [to, setTo] = useState<CurrencyCode>("UAH")
-  const [amount, setAmount] = useState<number>(1)
+  const [from, setFrom] = useState<CurrencyCode>("USD");
+  const [to, setTo] = useState<CurrencyCode>("UAH");
+  const [amount, setAmount] = useState<number>(1);
+  const [result, setResult] = useState<string | undefined>(
+    "Введіть потрібні дані"
+  );
+
+  const handleConvert = async () => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/convert`, {
+        params: { from, to },
+      });
+
+      const rate = response.data.rate;
+      const converted = amount * rate;
+
+      setResult(`${amount} ${from} = ${converted.toFixed(2)} ${to}`);
+    } catch (error) {
+      alert("Помилка при конвертації валют");
+      console.error(error);
+    }
+  };
 
   return (
     <div
@@ -66,8 +86,11 @@ const CurrencyConverter: React.FC = () => {
           ))}
         </select>
       </div>
+      <button onClick={handleConvert}>Конвертувати</button>
+      <br />
+      <span>{result}</span>
     </div>
-  )
-}
+  );
+};
 
-export default CurrencyConverter
+export default CurrencyConverter;
