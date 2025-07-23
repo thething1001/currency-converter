@@ -1,27 +1,28 @@
-import tsconfigPaths from "vite-tsconfig-paths"
-import { defineConfig } from "vite"
-import fs from "fs"
-import { VitePluginNode } from "vite-plugin-node"
+import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vite";
+import fs from "fs";
+import { VitePluginNode } from "vite-plugin-node";
+import { PORT } from "./src/env";
 
 const bufferLoader = {
   name: "buffer",
   transform(code: string, id: string) {
-    const [path, query] = id.split("?")
+    const [path, query] = id.split("?");
 
     if (query != "buffer") {
-      return null
+      return null;
     }
 
-    const data = fs.readFileSync(path)
-    const base64 = data.toString("base64")
+    const data = fs.readFileSync(path);
+    const base64 = data.toString("base64");
 
-    return `export default Buffer.from('${base64}', 'base64');`
+    return `export default Buffer.from('${base64}', 'base64');`;
   },
-}
+};
 
 export default defineConfig({
   server: {
-    port: process.env.APP_LISTEN ? Number(process.env.APP_LISTEN) : 8000,
+    port: PORT ? Number(PORT) : 8000,
     host: "0.0.0.0",
   },
   root: "./",
@@ -50,4 +51,4 @@ export default defineConfig({
   optimizeDeps: {
     disabled: true,
   },
-})
+});

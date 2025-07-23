@@ -1,3 +1,75 @@
+# currency-converter
+
+Currency Converter App. Project consists of frontend (**React.js (Vite)**) and backend (**Node.js + Express.js**)
+
+---
+
+## **Getting Started**
+
+### **Prerequisites**
+
+Ensure you have the following installed:
+
+- **Node.js**
+- **npm**
+
+---
+
+### **1. Clone the Repository**
+
+```bash
+git https://github.com/thething1001/currency-converter.git
+cd currency-converter
+```
+
+---
+
+### **2. Configure Environment Variables**
+
+The project requires environment variables to function properly. To assist you, `.env` files are provided in the following directories:
+
+- `server/`
+- `client/`
+
+---
+
+### **3. Install Dependencies**
+
+Install all required Node.js packages for both the frontend and backend:
+
+```bash
+cd client
+npm install
+cd ../server
+npm install
+```
+
+---
+
+### **4. Start the Application**
+
+Run this command in `client`:
+
+```bash
+npm dev
+```
+
+Run this commands in `server`:
+
+```bash
+npm dev
+```
+
+---
+
+### **5. Access the Application**
+
+Once the application is running, you can access it as follows, assuming you left all environment variables untouched (using default settings from `.env.example`):
+
+- **Frontend**: [http://localhost:5000](http://localhost:5000)
+- **Backend**: [http://localhost:8000/api](http://localhost:8000)
+
+
 # Task: Currency Converter
 
 ## User Story
